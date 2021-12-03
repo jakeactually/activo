@@ -1,0 +1,3 @@
+miembros.activo.plus {
+    reverse_proxy localhost:3000
+}

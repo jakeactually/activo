@@ -1,0 +1,67 @@
+<div id="show">
+  <p style="text-align: center; background-color: #00ACD8;">
+    <% if @user.avatar.attached? %>
+      <image class="avatar" src="<%= (url_for(@user.avatar)) %>">
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Nombre</strong><br>
+    <%= @user.first_name %>
+  </p>
+
+  <p>
+    <strong>Apellido</strong><br>
+    <%= @user.last_name %>
+  </p>
+
+  <p>
+    <strong>Dirección</strong><br>
+    <%= @user.address %>
+  </p>
+
+  <p>
+    <strong>Compañía</strong><br>
+    <%= @user.company %>
+  </p>
+
+  <p>
+    <strong>Correo</strong><br>
+    <%= @user.email %>
+  </p>
+
+  <p>
+    <strong>Teléfono</strong><br>
+    <%= @user.phone %>
+  </p>
+
+  <p>
+    <strong>Cargo</strong><br>
+    <%= @user.position %>
+  </p>
+
+  <p>
+    <strong>Sitio web</strong><br>
+    <%= @user.website %>
+  </p>
+
+  <p style="text-align: center;">
+    <a href="<%= url_for action: 'vcf' %>">
+      <button type="button" class="btn btn-primary" id="save-contact">
+        Guardar contacto
+      </button>
+    </a>
+  </p>
+
+  <p style="text-align: center;">
+    <a href="<%= url_for action: 'login', email: @user.email %>">
+      <button type="button" class="btn btn-success" id="save-contact">
+        Ingresar
+      </button>
+    </a>
+  </p>
+
+  <p style="text-align: center;">
+    <%= raw @svg[38..] %>
+  </p>
+</div>

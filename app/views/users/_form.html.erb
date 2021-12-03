@@ -1,0 +1,62 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Nombre" %>
+    <%= form.text_field :first_name, class: 'form-control', required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Apellido" %>
+    <%= form.text_field :last_name, class: 'form-control', required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Dirección" %>
+    <%= form.text_field :address, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Compañía" %>
+    <%= form.text_field :company, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Correo" %>
+    <%= form.text_field :email, class: 'form-control', required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Teléfono" %>
+    <%= form.text_field :phone, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Cargo" %>
+    <%= form.text_field :position, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Sitio web" %>
+    <%= form.text_field :website, class: 'form-control' %>
+  </div>
+
+  <div class="actions form-group">
+    <%= form.submit 'Guardar', class: 'btn btn-primary' %>
+  </div>
+<% end %>

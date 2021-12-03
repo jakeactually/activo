@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<div style="padding: 0 20px;">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Address</th>
+        <th>Company</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Position</th>
+        <th>Website</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr style="visibility: <%= if user.role == 'admin' then 'hidden' else 'visible' end %>;">
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.address %></td>
+          <td><%= user.company %></td>
+          <td><%= user.email %></td>
+          <td><%= user.phone %></td>
+          <td><%= user.position %></td>
+          <td><%= user.website %></td>
+          <td><%= user.password %></td>
+          <td><%= link_to 'Edit', { action: 'admin' , id: user.id }, class: 'btn btn-primary' %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New User', new_user_path, class: 'btn btn-primary' %>
+</div>

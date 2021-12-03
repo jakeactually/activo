@@ -1,0 +1,21 @@
+<div id="login">
+  <%= image_tag "white-logo.svg", class: 'logo' %>
+
+  <%= form_with url: { action: "login" } do |form| %>
+    <div class="field form-group">
+      <%= form.label "Correo" %>
+      <%= form.text_field :email, class: 'form-control', value: params[:email] %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label "Contraseña" %>
+      <%= form.password_field :password, class: 'form-control' %>
+    </div>
+
+    <p id="alert"><%= alert %></p>
+
+    <div class="actions form-group">
+      <%= form.submit 'Ingresar', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

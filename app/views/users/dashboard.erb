@@ -1,0 +1,29 @@
+<a id="logout" href="/logout" class="link-primary">
+  Cerrar sesión
+</a>
+
+<div id="dashboard">
+  <p style="text-align: center;">
+    <% if @user.avatar.attached? %>
+      <image class="avatar" src="<%= (url_for(@user.avatar)) %>">
+    <% end %>
+  </p>
+
+  <h1>
+    <%= @user.first_name %> <%= @user.last_name %>
+  </h1>
+
+  <p>
+    <% if @user.contract.attached? %>
+      <strong>Contrato</strong><br>
+      <a href="<%= (url_for(@user.contract)) %>"><%= @user.contract.blob.filename %></a>
+    <% end %>
+  </p>
+
+    <p>
+    <% if @user.document.attached? %>
+      <strong>Beneficios</strong><br>
+      <a href="<%= (url_for(@user.document)) %>"><%= @user.document.blob.filename %></a>
+    <% end %>
+  </p>
+</div>
