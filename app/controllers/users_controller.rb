@@ -101,8 +101,8 @@ class UsersController < ApplicationController
 
   # GET /users/1/admin
   def admin_patch
-    @user.contract.attach(params[:contract])
-    @user.password = params[:password]
+    @user.update(user_params)
+    @user.password = params[:password] if params[:password]
     @user.save
     redirect_to users_path
   end
@@ -145,6 +145,27 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:code, :first_name, :last_name, :address, :company, :email, :phone, :position, :website, :role, :password, :avatar)
+      params.require(:user).permit(
+        :code,
+        :first_name,
+        :last_name,
+        :address,
+        :company,
+        :email,
+        :phone,
+        :position, :website,
+        :role,
+        :password,
+        :avatar,
+        :contract,
+        :document,
+        :identification,
+        :alergie,
+        :contact_name,
+        :contact_phone,
+        :card_from,
+        :card_to,
+        :blood_type
+      )
     end
 end

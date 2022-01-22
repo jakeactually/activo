@@ -1,31 +1,105 @@
 <%= form_with model: @user, url: { action: 'admin' } do |form| %>
   <div class="field form-group">
+    <%= form.label "Avatar" %>
+    <%= form.file_field :avatar, class: 'form-control' %>
+  </div>
+
+  <p> 
+    <% if @user.avatar.attached? %>
+      <strong>Avatar</strong><br>
+      <a href="<%= (url_for(@user.avatar)) %>"><%= @user.avatar.blob.filename %></a>
+    <% end %>
+  </p>
+
+  <div class="field form-group">
+    <%= form.label "Nombre" %>
+    <%= form.text_field :first_name, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Apellido" %>
+    <%= form.text_field :last_name, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Empresa" %>
+    <%= form.text_field :company, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Cédula" %>
+    <%= form.text_field :identification, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Referencia vivienda" %>
+    <%= form.text_field :address, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Teléfono" %>
+    <%= form.text_field :phone, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Alergia vital" %>
+    <%= form.text_field :alergie, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Nombre contacto" %>
+    <%= form.text_field :contact_name, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Número de contacto" %>
+    <%= form.text_field :contact_phone, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Inicio vigencia" %>
+    <%= form.date_field :card_from, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "Fin vigencia" %>
+    <%= form.date_field :card_to, class: 'form-control' %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label "Tipo de sangre" %>
+    <%= form.text_field :blood_type, class: 'form-control' %>
+  </div>
+  
+  <div class="field form-group">
     <%= form.label "Contrato" %>
     <%= form.file_field :contract, class: 'form-control' %>
   </div>
 
-  <p>
+  <p> 
     <% if @user.contract.attached? %>
+      <strong>Contrato</strong><br>
       <a href="<%= (url_for(@user.contract)) %>"><%= @user.contract.blob.filename %></a>
     <% end %>
   </p>
 
   <div class="field form-group">
-    <%= form.label "Beneficios" %>
+    <%= form.label "Documento" %>
     <%= form.file_field :document, class: 'form-control' %>
   </div>
 
-  <p>
+  <p> 
     <% if @user.document.attached? %>
+      <strong>Documento</strong><br>
       <a href="<%= (url_for(@user.document)) %>"><%= @user.document.blob.filename %></a>
     <% end %>
   </p>
-
+  
   <div class="field form-group">
     <%= form.label "Contraseña" %>
-    <%= form.text_field :password, class: 'form-control' %>
+    <%= form.password_field :password, class: 'form-control' %>
   </div>
-  
+
   <p id="alert"><%= alert %></p>
 
   <div class="actions form-group">

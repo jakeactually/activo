@@ -1,29 +1,97 @@
-<a id="logout" href="/logout" class="link-primary">
+<a id="logout" href="/logout" class="link-primary" style="color: white;">
   Cerrar sesión
 </a>
 
 <div id="dashboard">
-  <p style="text-align: center;">
+  <div style="text-align: center; background-color: #00ACD8; padding: 20px; margin-bottom: 20px;">
+    <div style="padding-bottom: 20px;">
+      <%= image_tag "horizontal.png", class: 'horizontal-logo' %>
+    </div>
+
     <% if @user.avatar.attached? %>
       <image class="avatar" src="<%= (url_for(@user.avatar)) %>">
     <% end %>
-  </p>
-
-  <h1>
-    <%= @user.first_name %> <%= @user.last_name %>
-  </h1>
+  </div>
 
   <p>
+    <strong>Nombre</strong><br>
+    <%= @user.first_name %>
+  </p>
+
+  <p>
+    <strong>Apellido</strong><br>
+    <%= @user.last_name %>
+  </p>
+
+  <p>
+    <strong>Cédula</strong><br>
+    <%= @user.identification %>
+  </p>
+
+  <p>
+    <strong>Empresa</strong><br>
+    <%= @user.company %>
+  </p>
+
+ <p>
+    <strong>Teléfono</strong><br>
+    <%= @user.phone %>
+  </p>
+
+  <p>
+    <strong>Referencia de vivienda</strong><br>
+    <%= @user.address %>
+  </p>
+
+  <p>
+    <strong>Alergia vital</strong><br>
+    <%= @user.alergie %>
+  </p>
+
+  <p>
+    <strong>Tipo de sangre</strong><br>
+    <%= @user.blood_type %>
+  </p>
+
+ <p>
+    <strong>Nombre contacto</strong><br>
+    <%= @user.contact_name %>
+  </p>
+  
+  <p>
+    <strong>Teléfono de contacto</strong><br>
+    <%= @user.contact_phone %>
+  </p>
+
+  <p>
+    <strong>Inicio vigencia</strong><br>
+    <%= @user.card_from %>
+  </p>
+
+  <p>
+    <strong>Fin vigencia</strong><br>
+    <%= @user.card_to %>
+  </p>
+
+  <p> 
     <% if @user.contract.attached? %>
       <strong>Contrato</strong><br>
-      <a href="<%= (url_for(@user.contract)) %>"><%= @user.contract.blob.filename %></a>
+      <a href="<%= (url_for(@user.document)) %>"><%= @user.document.blob.filename %></a>
     <% end %>
   </p>
 
-    <p>
+  <p> 
     <% if @user.document.attached? %>
       <strong>Beneficios</strong><br>
       <a href="<%= (url_for(@user.document)) %>"><%= @user.document.blob.filename %></a>
     <% end %>
+  </p>
+
+  <p style="text-align: center;">
+    <a href="<%= url_for action: 'edit' %>">
+      <button type="button" class="btn btn-primary">
+        Editar
+      </button>
+    </a>
   </p>
 </div>

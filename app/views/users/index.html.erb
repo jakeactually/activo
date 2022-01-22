@@ -1,3 +1,7 @@
+<a id="logout" href="/logout" class="link-primary">
+  Cerrar sesión
+</a>
+
 <p id="notice"><%= notice %></p>
 
 <div style="padding: 0 20px;">
@@ -28,8 +32,9 @@
           <td><%= user.position %></td>
           <td><%= user.website %></td>
           <td><%= user.password %></td>
-          <td><%= link_to 'Edit', { action: 'admin' , id: user.id }, class: 'btn btn-primary' %></td>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></td>
+          <td><%= link_to 'Ver', { action: 'show' , id: user.id }, class: 'btn btn-primary' %></td>
+          <td><%= link_to 'Editar', { action: 'admin' , id: user.id }, class: 'btn btn-primary' %></td>
+          <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
         </tr>
       <% end %>
     </tbody>

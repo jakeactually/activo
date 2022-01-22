@@ -1,9 +1,13 @@
 <div id="show">
-  <p style="text-align: center; background-color: #00ACD8;">
+  <div style="text-align: center; background-color: #00ACD8; padding: 20px;">
+    <div style="padding-bottom: 20px;">
+      <%= image_tag "horizontal.png", class: 'horizontal-logo' %>
+    </div>
+
     <% if @user.avatar.attached? %>
       <image class="avatar" src="<%= (url_for(@user.avatar)) %>">
     <% end %>
-  </p>
+  </div>
 
   <p>
     <strong>Nombre</strong><br>
@@ -16,12 +20,12 @@
   </p>
 
   <p>
-    <strong>Dirección</strong><br>
+    <strong>Referencia vivienda</strong><br>
     <%= @user.address %>
   </p>
 
   <p>
-    <strong>Compañía</strong><br>
+    <strong>Empresa</strong><br>
     <%= @user.company %>
   </p>
 
@@ -31,18 +35,8 @@
   </p>
 
   <p>
-    <strong>Teléfono</strong><br>
+    <strong>Número de contacto</strong><br>
     <%= @user.phone %>
-  </p>
-
-  <p>
-    <strong>Cargo</strong><br>
-    <%= @user.position %>
-  </p>
-
-  <p>
-    <strong>Sitio web</strong><br>
-    <%= @user.website %>
   </p>
 
   <p style="text-align: center;">
@@ -55,8 +49,8 @@
 
   <p style="text-align: center;">
     <a href="<%= url_for action: 'login', email: @user.email %>">
-      <button type="button" class="btn btn-success" id="save-contact">
-        Ingresar
+      <button type="button" class="btn btn-success" id="save-contact" title="Acceder a información del producto">
+        Acceder
       </button>
     </a>
   </p>

@@ -16,6 +16,13 @@
     <%= form.file_field :avatar, class: 'form-control' %>
   </div>
 
+  <p> 
+    <% if @user.avatar.attached? %>
+      <strong>Avatar</strong><br>
+      <a href="<%= (url_for(@user.avatar)) %>"><%= @user.avatar.blob.filename %></a>
+    <% end %>
+  </p>
+
   <div class="field form-group">
     <%= form.label "Nombre" %>
     <%= form.text_field :first_name, class: 'form-control', required: true %>
